@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "CoreDataManager.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,7 @@
     
     MainViewController *mainVC = [[MainViewController alloc] init];
     self.window.rootViewController = mainVC;
+    
     return YES;
 }
 
@@ -32,10 +34,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
    
-    [self saveContext];
+    [[CoreDataManager sharedManager] saveContext];
 }
-
-#pragma mark - Core Data stack
 
 
 @end
